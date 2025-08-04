@@ -11,7 +11,7 @@ const index = (req , res) => {
 
 const show = (req , res) => {
   let id = req.params.id
-  res.json(`Per visualizzare tutti gli elementi con ${id}`)
+  res.json(`Per visualizzare tutti gli elementi con id ${id}`)
 }
 
 // store // per creare un elemento nuovo
@@ -24,21 +24,21 @@ const store = (req , res) => {
 
 const update = (req , res) => {
   let id = req.params.id
-  res.json(`per modificare totalmente un elemento con ${id}`)
+  res.json(`per modificare totalmente un elemento con id ${id}`)
 }
 
 // modify // per modificare parzialmente un elemento con id 
 
 const modify = (req , res) => {
   let id = req.params.id
-  res.json(`per modificare parzialmente un elemento con ${id}`)
+  res.json(`per modificare parzialmente un elemento con id ${id}`)
 }
 
 // remove  // per eliminare un elemento con id 
 
 const destroy = (req , res) => {
   let id = req.params.id
-  res.json(`per eliminare un elemento con ${id}`)
+  res.json(`per eliminare un elemento con id ${id}`)
 }
 
 module.exports = {
