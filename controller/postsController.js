@@ -19,6 +19,7 @@ const posts = require('../dataposts.js')
 
 const index = (req , res) => {
   //facendo così già restituisco l'array
+
   res.json(posts)
 }
 
@@ -33,7 +34,7 @@ const show = (req , res) => {
  
   // effettuiamo un controllo su post per vedere se esiste
   if(!post){
-    return res.status(404).res.json({ error: '404 not found '
+    return res.status(404).json({ error: '404 not found '
       ,messagge:'Post non presente'})
   }
 
@@ -63,8 +64,23 @@ const modify = (req , res) => {
 // remove  // per eliminare un elemento con id 
 
 const destroy = (req , res) => {
-  let id = req.params.id
-  res.json(`per eliminare un elemento con id ${id}`)
+  const id = req.params.id
+
+  // ricopio la logica di show per trovare un elemento con id per poi rimuoverlo con slice
+  //uso id per trovare il singolo elemento
+  
+  const post = posts.find(elem => elem.id === id)
+ 
+  // effettuiamo un controllo su post per vedere se esiste
+  if(!post){
+    return res.status(404).json({ error: '404 not found '
+      ,messagge:'Post non presente'})
+  }
+
+  const postFilter = posts.slice(posts.indexOf(post) , 1);
+
+  res.json(postFilter)
+  
 }
 
 module.exports = {
@@ -73,3 +89,4 @@ module.exports = {
 
 
 
+ 
