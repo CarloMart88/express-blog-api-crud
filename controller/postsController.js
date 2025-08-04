@@ -64,7 +64,7 @@ const modify = (req , res) => {
 // remove  // per eliminare un elemento con id 
 
 const destroy = (req , res) => {
-  const id = req.params.id
+  const id = parseInt(req.params.id)
 
   // ricopio la logica di show per trovare un elemento con id per poi rimuoverlo con slice
   //uso id per trovare il singolo elemento
@@ -77,9 +77,9 @@ const destroy = (req , res) => {
       ,messagge:'Post non presente'})
   }
 
-  const postFilter = posts.slice(posts.indexOf(post) , 1);
+  posts.splice(posts.indexOf(post) , 1);
 
-  res.json(postFilter)
+  res.sendStatus(204)
   
 }
 
