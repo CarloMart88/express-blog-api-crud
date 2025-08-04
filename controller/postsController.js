@@ -9,18 +9,26 @@ const posts = require('../dataposts.js')
 
 // Index dovrà restituire la lista dei post in formato JSON ok 
 
-// Show dovrà restituire un singolo post in formato JSON
+// Show dovrà restituire un singolo post in formato JSON ok
 
 
-// Destroy dovrà eliminare un singolo post dalla lista, stampare nel terminale (console.log) la lista aggiornata, e rispondere con uno stato 204 e nessun contenuto.
+// Destroy dovrà eliminare un singolo post dalla lista, stampare nel terminale (console.log) la lista aggiornata, e rispondere con uno stato 204 e nessun contenuto. ok
 
 
 // index // per vedere tutti gli elementi 
 
 const index = (req , res) => {
   //facendo così già restituisco l'array
+  const tag = req.query.tags
 
-  res.json(posts)
+  let filterPost = posts
+  
+  if(tag){
+    return filterPost = posts.filter(item => item.tags.includes(tag))
+  }
+
+  res.json(filterPost)
+  
 }
 
 // show // per vedere tutti gli elementi 
@@ -29,7 +37,7 @@ const show = (req , res) => {
   const id = parseInt(req.params.id)
 
   //uso id per trovare il singolo elemento
-  
+ 
   const post = posts.find(elem => elem.id === id)
  
   // effettuiamo un controllo su post per vedere se esiste
@@ -80,7 +88,7 @@ const destroy = (req , res) => {
   posts.splice(posts.indexOf(post) , 1);
 
   res.sendStatus(204)
-  
+
 }
 
 module.exports = {
