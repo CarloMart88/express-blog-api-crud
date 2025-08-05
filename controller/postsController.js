@@ -103,8 +103,32 @@ const update = (req , res) => {
 // modify // per modificare parzialmente un elemento con id 
 
 const modify = (req , res) => {
-  let id = req.params.id
-  res.json(`per modificare parzialmente un elemento con id ${id}`)
+  const id = parseInt(req.params.id)
+  //stesso discorso sarà modify e quindi patch importo la stessa logica di update facendo riferimento questa volta solo ad un valore 
+
+  post =  posts.find(elem => elem.id === id)
+  //anche se non necessario destrutturo req.body
+  const { title , content , image ,tags } = req.body
+
+  post.content = content
+
+  if(!post){
+    return res.status(404).json({ error: '404 not found '
+      ,messagge:'Post non presente'})
+  }
+
+  console.log(posts)
+
+  res.json(post)
+
+
+
+
+
+
+
+
+
 }
 
 // remove  // per eliminare un elemento con id 
