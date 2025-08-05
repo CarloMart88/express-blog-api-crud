@@ -1,20 +1,6 @@
 const posts = require('../dataposts.js')
 
 
-
-// Milestone 2
-// Per iniziare, creiamo una cartella data in cui creare un file che contenga ed esporti l’array di posts che trovate in allegato. Importiamo questo file in cima al controller. ok 
-
-// Ora passiamo ad implementare le logiche delle nostre CRUD: ok 
-
-// Index dovrà restituire la lista dei post in formato JSON ok 
-
-// Show dovrà restituire un singolo post in formato JSON ok
-
-
-// Destroy dovrà eliminare un singolo post dalla lista, stampare nel terminale (console.log) la lista aggiornata, e rispondere con uno stato 204 e nessun contenuto. ok
-
-
 // index // per vedere tutti gli elementi 
 
 const index = (req , res) => {
@@ -24,7 +10,7 @@ const index = (req , res) => {
   let filterPost = posts
   
   if(tag){
-    return filterPost = posts.filter(item => item.tags.includes(tag))
+    filterPost = posts.filter(item => item.tags.includes(tag))
   }
 
   res.json(filterPost)
