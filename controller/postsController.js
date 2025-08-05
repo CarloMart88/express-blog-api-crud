@@ -70,9 +70,34 @@ const store = (req , res) => {
 
 // update // per modificare totalmente un elemento con id 
 
+// Milestone 4
+
+// Ripetiamo il procedimento per la rotta di Update, in modo da avere la possibilità di modificare le nostre risorse.
+
+
 const update = (req , res) => {
-  let id = req.params.id
-  res.json(`per modificare totalmente un elemento con id ${id}`)
+
+  const id = parseInt(req.params.id)
+
+  const post = posts.find(elem => elem.id === id )
+
+  if(!post){
+    return res.status(404).json({ error: '404 not found '
+      ,messagge:'Post non presente'})
+  }
+
+  //destrutturo il body request 
+  const { title , content , image ,tags } = req.body
+
+  //modifico tutti i parametri 
+  post.title = title;
+  post.content = content;
+  post.image = image;
+  post.tags = tags;
+
+  console.log(posts)
+  res.json(post)
+  
 }
 
 // modify // per modificare parzialmente un elemento con id 

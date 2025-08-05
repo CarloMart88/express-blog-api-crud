@@ -39,7 +39,7 @@ Nota: ricordiamo che non bisogna passare l’id quando si crea una nuova risorsa
 
 Milestone 2
 
-Impostiamo il body-parser per far sì che la nostra app riesca a decifrare il request body.
+Impostiamo il body-parser per far sì che la nostra app riesca a decifrare il request body. ok
 Poi, all’interno della rotta Store, stampiamo nel terminale i dati in arrivo, grazie a un console.log
 
 Milestone 3
