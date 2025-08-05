@@ -15,7 +15,9 @@ app.use(express.static ('public'))
 
 app.use('/posts' , postsRouter)
 
+// Impostiamo il body-parser per far sì che la nostra app riesca a decifrare il request body.
 
+app.use(express.json())
 
 app.get("/" , (req , res) =>{
   res.send('Server per i miei post')
