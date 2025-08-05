@@ -37,9 +37,35 @@ const show = (req , res) => {
 
 // store // per creare un elemento nuovo
 
+// Milestone 3
+
+// Implementiamo quindi la logica per aggiungere un nuovo post al nostro blog, e prepariamo la risposta adeguata.
+// Testiamolo con postman.
+
 const store = (req , res) => {
+
   console.log(req.body)
-  res.json('per creare un elemento nuovo')
+
+  const newID = posts[posts.length -1].id + 1
+
+  //destrutturo il body.req 
+
+  const { id , title , content , image ,tags } = body.req
+  
+  const newPost = {
+
+    id: newID,
+    title,
+    content,
+    image,
+    tags
+
+  }
+
+  posts.push(newPost)
+
+  res.status(201).json(newPost)
+  
 }
 
 // update // per modificare totalmente un elemento con id 
