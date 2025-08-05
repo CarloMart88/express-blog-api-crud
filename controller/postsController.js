@@ -50,7 +50,7 @@ const store = (req , res) => {
 
   //destrutturo il body.req 
 
-  const { id , title , content , image ,tags } = body.req
+  const { id , title , content , image ,tags } = req.body
   
   const newPost = {
 
