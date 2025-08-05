@@ -10,14 +10,16 @@ const port = 3000
 const postsRouter = require('./routers/postsRouter')
 
 
-app.use(express.static ('public'))
-
-
-app.use('/posts' , postsRouter)
+app.use(express.static('public'))
 
 // Impostiamo il body-parser per far sì che la nostra app riesca a decifrare il request body.
 
 app.use(express.json())
+
+
+app.use('/posts' , postsRouter)
+
+
 
 app.get("/" , (req , res) =>{
   res.send('Server per i miei post')

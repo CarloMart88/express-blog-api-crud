@@ -38,6 +38,7 @@ const show = (req , res) => {
 // store // per creare un elemento nuovo
 
 const store = (req , res) => {
+  console.log(req.body)
   res.json('per creare un elemento nuovo')
 }
 
