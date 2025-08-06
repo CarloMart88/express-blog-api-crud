@@ -32,9 +32,11 @@ app.get("/" , (req , res) =>{
 })
 
 
+// applico i middleware dopo le rotte affinchè possano esser intercettate
 
+app.use(errorsHandler)
 
-
+app.use(notFound)
 
 
 

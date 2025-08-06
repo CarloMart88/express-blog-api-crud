@@ -12,7 +12,7 @@ const index = (req , res) => {
   if(tag){
     filterPost = posts.filter(item => item.tags.includes(tag))
   }
-
+  
   res.json(filterPost)
   
 }
