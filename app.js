@@ -9,6 +9,12 @@ const port = 3000
 
 const postsRouter = require('./routers/postsRouter')
 
+// importo i due middleware
+
+const errorsHandler = require("./middleware/errorsHandler")
+
+const notFound = require("./middleware/notFound")
+
 
 app.use(express.static('public'))
 
